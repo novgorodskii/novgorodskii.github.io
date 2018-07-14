@@ -72,6 +72,8 @@ ul {
 a {
   color: #009ADF;
   text-decoration: none; }
+  a:hover {
+    opacity: .9; }
 
 h1 {
   text-transform: capitalize;
@@ -305,16 +307,42 @@ h2 {
 .team {
   text-align: center; }
   .team-img {
-    box-shadow: 0 0 5px 0 rgba(182, 187, 193, 0.3);
+    position: relative;
     cursor: pointer;
-    opacity: .8;
-    transition: all .5s linear; }
-    .team-img:hover {
-      opacity: 1;
-      transform: scale(0.98); }
+    transition: all .5s linear;
+    width: 248px;
+    margin: 0 auto; }
+    .team-img:hover .team-img_social_active {
+      bottom: 0;
+      opacity: 1; }
+    .team-img_social_active {
+      max-width: 248px;
+      opacity: 0;
+      position: absolute;
+      bottom: -10%;
+      width: 100%;
+      background: rgba(59, 62, 67, 0.75);
+      transition: .3s linear;
+      display: flex;
+      transition: all .5s linear;
+      border-bottom: 4px solid #ffffff;
+      border-right: 4px solid #ffffff;
+      border-left: 4px solid #ffffff; }
+      .team-img_social_active a {
+        width: 33.33333333333333%;
+        padding: 15px 0;
+        color: #ffffff;
+        display: inline-block;
+        transition: all .5s linear; }
+        .team-img_social_active a:hover {
+          color: #009ADF;
+          transform: scale(1.1);
+          transition: all .5s linear;
+          background: rgba(59, 62, 67, 0.85); }
     .team-img img {
-      border: 10px solid #ffffff;
-      border-radius: 2px; }
+      border-radius: 2px;
+      transition: all .5s linear;
+      border: 4px solid #ffffff; }
   .team h2 {
     margin-bottom: 40px; }
   .team h4 {
@@ -506,17 +534,36 @@ h2 {
         display: block;
         color: #009ADF; }
 
-.apps-block a {
+.content-instruction {
+  padding: 20px;
+  display: flex;
+  flex-direction: column; }
+  .content-instruction_title {
+    margin: auto;
+    display: flex;
+    align-items: center; }
+    .content-instruction_title i {
+      font-size: 4rem;
+      margin-left: 20px; }
+  .content-instruction_blocks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .content-instruction_blocks_block {
+      margin-top: 4.5rem;
+      text-transform: uppercase; }
+
+.content-apps-block a {
   display: inline-block;
   background: #ffffff;
   padding: 12px;
   border-radius: 4px;
   transition: all .4s linear; }
-  .apps-block a:hover {
+  .content-apps-block a:hover {
     background: inherit; }
-    .apps-block a:hover img {
+    .content-apps-block a:hover img {
       transform: scale(1.1); }
-  .apps-block a img {
+  .content-apps-block a img {
     transition: all .4s linear;
     border-radius: 4px; }
 

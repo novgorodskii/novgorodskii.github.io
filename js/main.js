@@ -65,8 +65,7 @@ $('.direction-blocks').slick({
 
 // map
   // When the window has finished loading create our google map below
-  // google.maps.event.addDomListener(window, 'load', init);
-
+  google.maps.event.addDomListener(window, 'load', init);
 
   var urlCars      = '//api.zvezdacar.ru/api/car/get-cars';
   var urlGeozones  = '//api.zvezdacar.ru/api/geofence/geozones';
@@ -231,20 +230,3 @@ $('.direction-blocks').slick({
       })
     })
   }
-
-
-
-// Модальное окно
-
-var modal = document.getElementById('myModal');
-var close = document.getElementsByClassName("close")[0];
-
-close.onclick = function() {
-  modal.style.display = "none"
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
