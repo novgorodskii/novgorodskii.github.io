@@ -618,6 +618,10 @@ h2 {
 @media (max-width: 767px) {
   html {
     font-size: 5px; }
+  h1 {
+    color: #009ADF;
+    font-size: 1.3em;
+    text-align: center; }
   .top-nav_btn {
     display: block; }
   .top-nav_menu {
