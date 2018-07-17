@@ -116,7 +116,8 @@ h2 {
     font-size: 18px;
     position: absolute;
     right: 20px;
-    top: -50px; }
+    top: -50px;
+    color: #009ADF; }
     .top-nav_btn:hover {
       cursor: pointer; }
   .top-nav .logo {
@@ -157,12 +158,14 @@ h2 {
     border-radius: 4px;
     background-color: #ffffff; }
     .left-sidebar_btn p {
+      color: #009ADF;
       font-size: 14px;
-      font-weight: 500;
-      letter-spacing: .04em;
-      text-transform: uppercase; }
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      font-weight: 700; }
     .left-sidebar_btn i {
       font-size: 20px;
+      color: #009ADF;
       margin-right: 10px; }
   .left-sidebar_menu {
     box-shadow: 0 0 5px 0 rgba(182, 187, 193, 0.3);
