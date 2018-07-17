@@ -593,7 +593,7 @@ h2 {
     border-radius: 4px;
     background-color: #ffffff;
     width: 100%;
-    max-width: 320px;
+    max-width: 370px;
     margin: 50px auto;
     text-align: center;
     box-shadow: 0 12px 24px rgba(0, 0, 1, 0.18); }
@@ -602,7 +602,7 @@ h2 {
       right: 15px;
       top: 15px;
       line-height: 1;
-      font-size: 20px;
+      font-size: 26px;
       opacity: .5; }
       .modal-content .close:hover {
         cursor: pointer; }
@@ -668,7 +668,9 @@ h2 {
     text-align: left; }
   .footer-social-links {
     margin-top: 30px;
-    text-align: center; } }
+    text-align: center; }
+  .modal-content {
+    max-width: 320px; } }
 
 @media (min-width: 767px) and (max-width: 991px) {
   html {
