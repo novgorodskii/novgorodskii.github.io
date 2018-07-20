@@ -59,6 +59,7 @@ img {
   max-width: 100%; }
 
 body {
+  position: relative;
   margin: 0;
   padding-top: 40px;
   background-color: #eef3f5;
@@ -638,6 +639,28 @@ h2 {
       color: #e53935; }
     .modal-content a {
       margin-top: 30px; }
+
+.form-btn {
+  position: fixed;
+  background-color: #2580D3;
+  width: 54px;
+  height: 54px;
+  bottom: 105px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
+  box-shadow: 0 1px 3px 0 rgba(39, 13, 31, 0.3);
+  transition: all .5s; }
+  .form-btn:hover {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5); }
+  .form-btn span {
+    color: #ffffff;
+    font-size: 10px; }
 
 @media (max-width: 767px) {
   html {

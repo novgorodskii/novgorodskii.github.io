@@ -57,6 +57,7 @@
         border: none;
         width: 100%;
         text-transform: uppercase;
+        transition: all .3s linear;
       }
       input{
         border: 1px solid #009ADF !important;
@@ -75,6 +76,7 @@
         color: #fff;
         text-align: center;
         margin: 20px auto 2px;
+        transition: all .3s linear;
         }
       .file-upload:hover {
         background: #7aad55;
@@ -135,7 +137,7 @@
       <div class="row">
       	<div class="col-sm">
       		<form action="main.php" method="POST" enctype="multipart/form-data">
-      			<legend>Отправка чека оплаты</legend>
+      			<legend>Отправка фото <span style="font-size: 12px;">(повреждение, оплата)</span> </legend>
 
       			<div class="form-group">
       				<label for="">Введите ваше имя</label>
@@ -150,11 +152,11 @@
             <div class="file-upload form-group">
               <label>
                 <input type="file" class="form-control" id="" name="upload" required>
-                <span>Загрузите фото чека</span>
+                <span>Загрузите файл</span>
               </label>
             </div>
             <input type="text" id="filename" class="filename" disabled style="border: none !important;">
-      			<button type="submit" class="btn btn-primary">Отправить чек</button>
+      			<button type="submit" class="btn btn-primary">Отправить форму</button>
       		</form>
       	</div><!-- .col-sm-4 -->
       </div> <!-- .row -->
