@@ -7,9 +7,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/favicon.ico">
 
-    <title>Отправка формы на почту </title>
+    <title>Отправка чека на почту </title>
     <link rel="icon" href="img/icons/logo.png">
     <!-- Bootstrap Grid CSS -->
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
@@ -53,9 +52,53 @@
     	}
       .btn{
         background-color: #009ADF; 
-        border: none; 
         padding: 10px 30px;
-        margin-top: 20px;
+        margin-top: 60px;
+        border: none;
+        width: 100%;
+        text-transform: uppercase;
+      }
+      input{
+        border: 1px solid #009ADF !important;
+      }
+      legend{
+        border-bottom: 1px solid  #009ADF;
+      }
+      .file-upload {
+        position: relative !important; /* Даем возможность делать позиционирование, внутри данного элемента */
+        overflow: hidden;  /* Все что выходит за пределы - скрываем */
+        width: 100%; /* Задаем ширину кнопки выбора файла */
+        height: 40px; /* Задаем высоту кнопки выбора файла */
+        background: rgb(69, 160, 202);
+        border-radius: 3px;
+        padding: 8px 4px;
+        color: #fff;
+        text-align: center;
+        margin: 20px auto 2px;
+        }
+      .file-upload:hover {
+        background: #7aad55;
+      }
+      .file-upload input[type="file"]{
+        display: none !important; /* Обязательно скрываем настоящий Input File */
+      }
+      .file-upload label {
+        /* Растягиваем label на всю возможную площадь блока .file-upload */
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+      .file-upload span {
+        line-height: 36px; /* Делаем вертикальное выравнивание текста, который написан на кнопке */
+      }
+      .filename {
+        background: #fff;
+        border: 0;
+        width: 100%;
       }
     </style>
   </head>
@@ -91,20 +134,27 @@
       <!-- /.top-nav -->
       <div class="row">
       	<div class="col-sm">
-      		<form action="main.php" method="POST">
+      		<form action="main.php" method="POST" enctype="multipart/form-data">
       			<legend>Отправка чека оплаты</legend>
 
       			<div class="form-group">
       				<label for="">Введите ваше имя</label>
-      				<input type="text" class="form-control" id="" name="user_name" placeholder="Например, Иван">
+      				<input type="text" class="form-control" id="" name="user_name" placeholder="Например, Иван" required>
       			</div>
       		
       			<div class="form-group">
       				<label for="">Введите номер телефона</label>
-      				<input type="text" class="form-control" id="" name="user_phone" placeholder="+7 (999) 99 99 999">
-      			</div>
-      		
-      			<button type="submit" class="btn btn-primary">Отправить форму</button>
+      				<input type="text" class="form-control" id="" name="user_phone" placeholder="+7 (999) 99 99 999" required>
+            </div>
+
+            <div class="file-upload form-group">
+              <label>
+                <input type="file" class="form-control" id="" name="file" required>
+                <span>Загрузите файл</span>
+              </label>
+            </div>
+            <input type="text" id="filename" class="filename" disabled style="border: none !important;">
+      			<button type="submit" class="btn btn-primary">Отправить чек</button>
       		</form>
       	</div><!-- .col-sm-4 -->
       </div> <!-- .row -->
