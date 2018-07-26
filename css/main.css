@@ -61,7 +61,7 @@ img {
 body {
   position: relative;
   margin: 0;
-  padding-top: 40px;
+  padding-top: 60px;
   background-color: #eef3f5;
   color: #131313;
   font-size: 14px;
@@ -662,6 +662,19 @@ h2 {
   .form-btn span {
     color: #ffffff;
     font-size: 10px; }
+
+.news {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 10px 0;
+  color: #ffffff;
+  background-color: #009ADF; }
+  .news h4 {
+    margin: auto; }
 
 @media (max-width: 767px) {
   html {
