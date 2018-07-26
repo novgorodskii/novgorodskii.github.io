@@ -74,8 +74,9 @@ $('.direction-blocks').slick({
   // When the window has finished loading create our google map below
   google.maps.event.addDomListener(window, 'load', init);
 
-  var urlCars      = '//api.zvezdacar.ru/api/car/get-cars';
-  var urlGeozones  = '//api.zvezdacar.ru/api/geofence/geozones';
+  var urlCars        = '//api.zvezdacar.ru/api/car/get-cars';
+  var urlGeozones    = '//api.zvezdacar.ru/api/geofence/geozones';
+  var urlCarsSecond  = '//api.nashering.ru/api/car/get-cars';
 
   function getCars(url) {
     return new Promise((resolve, reject) => {
@@ -161,79 +162,91 @@ $('.direction-blocks').slick({
         anchor: new google.maps.Point(15, 25)
       };
 
-      getCars(urlCars)
-      .then(cars => {
-
-        for (i = 0; i < cars.length; i++) {
-          var position = new google.maps.LatLng(cars[i].lat, cars[i].lon);
-          bounds.extend(position);
-
-          marker = new google.maps.Marker({
-            position: position,
-            map: map,
-            icon: image
-          });
-
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-              infowindow.setContent(infoWindowContent(cars[i]));
-              infowindow.open(map, marker);
-            }
-          })(marker, i));
-
-          map.fitBounds(bounds);
-
-        }
-
-      });
-
-      getGeoZones(urlGeozones)
-    .then(geozones => {
-
-      geozones.forEach(geozone => {
-
-        var coordinates = [];
-
-        var type = typeof geozone.geo.coordinates[0];
-        
-        
-        if (type === 'number') {
-            var c = geozone.geo.coordinates;
-            coordinates.push({
-              lat: c[1],
-              lng: c[0]
-            });
-
-            var position = new google.maps.LatLng(c[1], c[0]);
+      function fetchCars(url) {
+        return getCars(url)
+        .then(cars => {
+  
+          for (i = 0; i < cars.length; i++) {
+            var position = new google.maps.LatLng(cars[i].lat, cars[i].lon);
             bounds.extend(position);
-            map.fitBounds(bounds);
-        }
-
-        if (type === 'object') {
-          geozone.geo.coordinates.forEach((coordinate, index) => {
-            coordinates.push({
-              lat: coordinate[1],
-              lng: coordinate[0]
+  
+            marker = new google.maps.Marker({
+              position: position,
+              map: map,
+              icon: image
             });
-
-            var position = new google.maps.LatLng(coordinate[1], coordinate[0]);
-            bounds.extend(position);
+  
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+              return function() {
+                infowindow.setContent(infoWindowContent(cars[i]));
+                infowindow.open(map, marker);
+              }
+            })(marker, i));
+  
             map.fitBounds(bounds);
-
-          });
-        }
-
-        var coordinatesPolygon = new google.maps.Polygon({
-          paths: coordinates,
-          strokeColor: geozone.types.color,
-          strokeOpacity: geozone.types.opacity,
-          strokeWeight: geozone.types.weight,
-          fillColor: geozone.types.color,
-          fillOpacity: 0.35
+  
+          }
+  
         });
+      }
 
-        coordinatesPolygon.setMap(map);
+      function fetchGeoZones(url) {
+        return getGeoZones(url)
+        .then(geozones => {
+  
+          geozones.forEach(geozone => {
+  
+            var coordinates = [];
+  
+            var type = typeof geozone.geo.coordinates[0];
+            
+            
+            if (type === 'number') {
+                var c = geozone.geo.coordinates;
+                coordinates.push({
+                  lat: c[1],
+                  lng: c[0]
+                });
+  
+                var position = new google.maps.LatLng(c[1], c[0]);
+                bounds.extend(position);
+                map.fitBounds(bounds);
+            }
+  
+            if (type === 'object') {
+              geozone.geo.coordinates.forEach((coordinate, index) => {
+                coordinates.push({
+                  lat: coordinate[1],
+                  lng: coordinate[0]
+                });
+  
+                var position = new google.maps.LatLng(coordinate[1], coordinate[0]);
+                bounds.extend(position);
+                map.fitBounds(bounds);
+  
+              });
+            }
+  
+            var coordinatesPolygon = new google.maps.Polygon({
+              paths: coordinates,
+              strokeColor: geozone.types.color,
+              strokeOpacity: geozone.types.opacity,
+              strokeWeight: geozone.types.weight,
+              fillColor: geozone.types.color,
+              fillOpacity: 0.35
+            });
+  
+            coordinatesPolygon.setMap(map);
+  
+          })
 
-      })
-    })
+        })
+      }
+
+
+      fetchCars(urlCars);
+      fetchCars(urlCarsSecond);
+
+      fetchGeoZones(urlGeozones);
+      
   }
