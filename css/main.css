@@ -638,9 +638,11 @@ h2 {
       letter-spacing: .02em;
       color: #009ADF; }
     .modal-content p {
-      color: #e53935; }
+      color: #2d2f3dc4;
+      text-transform: none;
+      font-weight: 700; }
     .modal-content a {
-      margin-top: 30px; }
+      margin-top: 10px; }
 
 .form-btn {
   position: fixed;
