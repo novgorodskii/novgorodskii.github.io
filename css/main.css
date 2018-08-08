@@ -63,7 +63,7 @@ body {
   margin: 0;
   padding-top: 20px;
   background-color: #eef3f5;
-  color: #131313;
+  color: #2d2f3dc4;
   font-size: 14px;
   font-family: "Roboto", sans-serif; }
 
@@ -117,7 +117,8 @@ h2 {
     font-size: 18px;
     position: absolute;
     right: 20px;
-    top: -50px; }
+    top: -50px;
+    color: #2d2f3dc4; }
     .top-nav_btn:hover {
       cursor: pointer; }
   .top-nav .logo {
@@ -133,7 +134,7 @@ h2 {
       margin-right: 5rem; }
       .top-nav_menu li a {
         text-transform: uppercase;
-        color: #131313;
+        color: #2d2f3dc4;
         font-weight: 700;
         letter-spacing: .03em; }
         .top-nav_menu li a::after {
@@ -301,7 +302,7 @@ h2 {
       transition: all 0.2s; }
       .footer-social-links li a:hover {
         background-color: rgba(255, 255, 255, 0.9);
-        color: #131313; }
+        color: #2d2f3dc4; }
 
 .content-listprice {
   padding: 10px;
@@ -579,6 +580,7 @@ h2 {
       text-transform: uppercase; }
 
 .content-apps-block a {
+  margin-top: 20px;
   display: inline-block;
   background: #ffffff;
   padding: 12px;
@@ -675,6 +677,10 @@ h2 {
   background-color: #009ADF; }
   .news h4 {
     margin: auto; }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .left-sidebar_menu li {
+    text-align: right; } }
 
 @media (max-width: 767px) {
   html {
