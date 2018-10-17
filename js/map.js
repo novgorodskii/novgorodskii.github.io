@@ -68,7 +68,7 @@
               <div class="info-window-meta">
               ${car.fuelDistance ?
                 `<div class="info-window-fuel">
-                  <div class="info-window-value">${car.fuelDistance}км</div>
+                  <div class="info-window-value">${Math.round(car.fuelDistance)}км</div>
                   <div class="info-window-label">осталось бензина</div>
                 </div>`
                 : ''}
