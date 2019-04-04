@@ -4,11 +4,11 @@
 
   var urlCars        = '//api.zvezdacar.ru/api/car/get-cars';
   var urlGeozones    = '//api.zvezdacar.ru/api/geofence/geozones';
-  var urlCarsSecond  = '//api.nashering.ru/api/car/get-cars';
+  // var urlCarsSecond  = '//api.nashering.ru/api/car/get-cars';
 
   function getCars(url) {
     return new Promise((resolve, reject) => {
- 
+
       fetch(url)
       .then(response => response.json())
       .then(json => resolve(json.data.cars))
@@ -37,7 +37,7 @@
         // The latitude and longitude to center the map (always required)
         center: new google.maps.LatLng(40.6700, -73.9400), // New York
 
-        // How you would like to style the map. 
+        // How you would like to style the map.
         // This is where you would paste any style found on Snazzy Maps.
         styles: [
           {"featureType":"landscape.natural",
