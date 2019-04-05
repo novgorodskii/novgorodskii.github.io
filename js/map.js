@@ -73,7 +73,7 @@
                 </div>`
                 : ''}
                 <div class="info-window-price">
-                  <div class="info-window-value">7 &#8381; / мин</div>
+                  <div class="info-window-value">9 &#8381; / мин</div>
                   <div class="info-window-label"> 2 &#8381; минута парковки</div>
                 </div>
               </div>
@@ -81,8 +81,6 @@
           </div>
         `
       };
-      
-
       var image = {
         url: 'img/icons/marker.png',
         scaledSize: new google.maps.Size(30, 30),
@@ -127,8 +125,6 @@
             var coordinates = [];
   
             var type = typeof geozone.geo.coordinates[0];
-            
-            
             if (type === 'number') {
                 var c = geozone.geo.coordinates;
                 coordinates.push({
@@ -173,8 +169,7 @@
 
 
       fetchCars(urlCars);
-      fetchCars(urlCarsSecond);
+      // fetchCars(urlCarsSecond);
 
       fetchGeoZones(urlGeozones);
-      
   }

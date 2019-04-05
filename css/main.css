@@ -89,7 +89,9 @@ h1 {
 
 h2 {
   font-size: 2em; }
-
+.footer-policy-link {
+  color: #009ADF !important;
+}
 .btn {
   padding: 14px 30px;
   display: inline-block;
